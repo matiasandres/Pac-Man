@@ -1,6 +1,6 @@
 
 package pac.man;
 
-public class Movimiento {
+public class NivelBase {
     
 }
