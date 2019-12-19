@@ -1,13 +1,11 @@
 
 package pac.man;
 
-public class Personaje {
-    private int vida;
-    private char nombre;
+public abstract class Personaje {
+    public int vida;
+    public char nombre;
     
-    public Personaje(int vida, char nombre){
+    public Personaje(int vida){
         this.vida = vida;
-        this.nombre = nombre;
-        
     }
 }

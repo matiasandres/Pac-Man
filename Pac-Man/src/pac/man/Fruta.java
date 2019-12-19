@@ -1,6 +1,7 @@
 
 package pac.man;
 
-public class abstract Fruta {
-    private nombre;
+public abstract class Fruta{
+    public Celda fruta;
+    public int efecto;
 }
