@@ -6,5 +6,6 @@ public class Personaje {
     
     String nombre;
     Celda objCelda;
+    String ruta;
     ImageIcon imagen;
 }
