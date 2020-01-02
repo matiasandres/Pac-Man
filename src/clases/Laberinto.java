@@ -59,11 +59,17 @@ public class Laberinto {
     }
 
     public final void GenerarParedes() {
+        
+        int x, y;
 
         int i = 0;
         if (nivel == 1) {
             while (i < 40) {
-                objPared = new Pared((int) (Math.random() * (laberinto.length - 2) + 1), (int) (Math.random() * (laberinto[0].length - 2) + 1), nivel);
+                
+                x = (int) (Math.random() * (laberinto.length - 2) + 1);
+                y = (int) (Math.random() * (laberinto[0].length - 2) + 1);
+                
+                objPared = new Pared(x, y, nivel);
                 if (laberinto[objPared.objCelda.x][objPared.objCelda.y].ruta.equals("src/imagenes/celda1.png")) {
                     laberinto[objPared.objCelda.x][objPared.objCelda.y].setIcon(null);
                     laberinto[objPared.objCelda.x][objPared.objCelda.y] = null;
@@ -75,7 +81,11 @@ public class Laberinto {
         }
         if (nivel == 2) {
             while (i < 80) {
-                objPared = new Pared((int) (Math.random() * (laberinto.length - 2) + 1), (int) (Math.random() * (laberinto[0].length - 2) + 1), nivel);
+                
+                x = (int) (Math.random() * (laberinto.length - 2) + 1);
+                y = (int) (Math.random() * (laberinto[0].length - 2) + 1);
+                
+                objPared = new Pared(x, y, nivel);
                 if (laberinto[objPared.objCelda.x][objPared.objCelda.y].ruta.equals("src/imagenes/celda1.png")) {
                     laberinto[objPared.objCelda.x][objPared.objCelda.y].setIcon(null);
                     laberinto[objPared.objCelda.x][objPared.objCelda.y] = objPared.objCelda;
@@ -86,7 +96,11 @@ public class Laberinto {
         }
         if (nivel == 3) {
             while (i < 120) {
-                objPared = new Pared((int) (Math.random() * (laberinto.length - 2) + 1), (int) (Math.random() * (laberinto[0].length - 2) + 1), nivel);
+                
+                x = (int) (Math.random() * (laberinto.length - 2) + 1);
+                y = (int) (Math.random() * (laberinto[0].length - 2) + 1);
+                
+                objPared = new Pared(x, y, nivel);
                 if (laberinto[objPared.objCelda.x][objPared.objCelda.y].ruta.equals("src/imagenes/celda1.png")) {
                     laberinto[objPared.objCelda.x][objPared.objCelda.y].setIcon(null);
                     laberinto[objPared.objCelda.x][objPared.objCelda.y] = objPared.objCelda;
@@ -98,11 +112,17 @@ public class Laberinto {
     }
 
     public final void GenerarFrutaA() {
+        
+        int x, y;
 
         int i = 0;
         if (nivel == 1) {
             while (i < 5) {
-                objFrutaA = new Alimenticia((int) (Math.random() * (laberinto.length - 2) + 1), (int) (Math.random() * (laberinto[0].length - 2) + 1), nivel);
+                
+                x = (int) (Math.random() * (laberinto.length - 2) + 1);
+                y = (int) (Math.random() * (laberinto[0].length - 2) + 1);
+                
+                objFrutaA = new Alimenticia(x, y, nivel);
                 if (laberinto[objFrutaA.objCelda.x][objFrutaA.objCelda.y].ruta.equals("src/imagenes/celda1.png")) {
                     laberinto[objFrutaA.objCelda.x][objFrutaA.objCelda.y].setIcon(null);
                     laberinto[objFrutaA.objCelda.x][objFrutaA.objCelda.y] = objFrutaA.objCelda;
@@ -113,7 +133,11 @@ public class Laberinto {
         }
         if (nivel == 2) {
             while (i < 10) {
-                objFrutaA = new Alimenticia((int) (Math.random() * (laberinto.length - 2) + 1), (int) (Math.random() * (laberinto[0].length - 2) + 1), nivel);
+                
+                x = (int) (Math.random() * (laberinto.length - 2) + 1);
+                y = (int) (Math.random() * (laberinto[0].length - 2) + 1);
+                
+                objFrutaA = new Alimenticia(x, y, nivel);
                 if (laberinto[objFrutaA.objCelda.x][objFrutaA.objCelda.y].ruta.equals("src/imagenes/celda1.png")) {
                     laberinto[objFrutaA.objCelda.x][objFrutaA.objCelda.y].setIcon(null);
                     laberinto[objFrutaA.objCelda.x][objFrutaA.objCelda.y] = objFrutaA.objCelda;
@@ -124,7 +148,11 @@ public class Laberinto {
         }
         if (nivel == 3) {
             while (i < 15) {
-                objFrutaA = new Alimenticia((int) (Math.random() * (laberinto.length - 2) + 1), (int) (Math.random() * (laberinto[0].length - 2) + 1), nivel);
+                
+                x = (int) (Math.random() * (laberinto.length - 2) + 1);
+                y = (int) (Math.random() * (laberinto[0].length - 2) + 1);
+                
+                objFrutaA = new Alimenticia(x, y, nivel);
                 if (laberinto[objFrutaA.objCelda.x][objFrutaA.objCelda.y].ruta.equals("src/imagenes/celda1.png")) {
                     laberinto[objFrutaA.objCelda.x][objFrutaA.objCelda.y].setIcon(null);
                     laberinto[objFrutaA.objCelda.x][objFrutaA.objCelda.y] = objFrutaA.objCelda;
@@ -136,13 +164,18 @@ public class Laberinto {
     }
 
     public final void GenerarFrutaV() {
+        
+        int x, y;
 
         int i = 0;
         if (nivel == 1) {
 
             while (i < 5) {
-
-                objFrutaV = new Venenosa((int) (Math.random() * (laberinto.length - 2) + 1), (int) (Math.random() * (laberinto[0].length - 2) + 1), nivel);
+                
+                x = (int) (Math.random() * (laberinto.length - 2) + 1);
+                y = (int) (Math.random() * (laberinto[0].length - 2) + 1);
+                
+                objFrutaV = new Venenosa(x, y, nivel);
                 if (laberinto[objFrutaV.objCelda.x][objFrutaV.objCelda.y].ruta.equals("src/imagenes/celda1.png")) {
 
                     laberinto[objFrutaV.objCelda.x][objFrutaV.objCelda.y].setIcon(null);
@@ -155,8 +188,11 @@ public class Laberinto {
         if (nivel == 2) {
 
             while (i < 10) {
+                
+                x = (int) (Math.random() * (laberinto.length - 2) + 1);
+                y = (int) (Math.random() * (laberinto[0].length - 2) + 1);
 
-                objFrutaV = new Venenosa((int) (Math.random() * (laberinto.length - 2) + 1), (int) (Math.random() * (laberinto[0].length - 2) + 1), nivel);
+                objFrutaV = new Venenosa(x, y, nivel);
                 if (laberinto[objFrutaV.objCelda.x][objFrutaV.objCelda.y].ruta.equals("src/imagenes/celda1.png")) {
 
                     laberinto[objFrutaV.objCelda.x][objFrutaV.objCelda.y].setIcon(null);
@@ -169,8 +205,11 @@ public class Laberinto {
         if (nivel == 3) {
 
             while (i < 15) {
-
-                objFrutaV = new Venenosa((int) (Math.random() * (laberinto.length - 2) + 1), (int) (Math.random() * (laberinto[0].length - 2) + 1), nivel);
+                
+                x = (int) (Math.random() * (laberinto.length - 2) + 1);
+                y = (int) (Math.random() * (laberinto[0].length - 2) + 1);
+                
+                objFrutaV = new Venenosa(x, y, nivel);
                 if (laberinto[objFrutaV.objCelda.x][objFrutaV.objCelda.y].ruta.equals("src/imagenes/celda1.png")) {
 
                     laberinto[objFrutaV.objCelda.x][objFrutaV.objCelda.y].setIcon(null);
@@ -184,8 +223,7 @@ public class Laberinto {
 
     public final void GenerarFantasma() {
 
-        int x;
-        int y;
+        int x, y;
 
         int i = 0;
         int j = 1;
@@ -194,7 +232,10 @@ public class Laberinto {
 
             while (i < 4) {
 
-                objFantasma = new Fantasma((int) (Math.random() * (laberinto.length - 2) + 1), (int) (Math.random() * (laberinto[0].length - 2) + 1), nivel, j);
+                x = (int) (Math.random() * (laberinto.length - 2) + 1);
+                y = (int) (Math.random() * (laberinto[0].length - 2) + 1);
+
+                objFantasma = new Fantasma(x, y, nivel, j);
 
                 if (laberinto[objFantasma.objCelda.x][objFantasma.objCelda.y].ruta.equals("src/imagenes/celda1.png")) {
 
@@ -233,7 +274,10 @@ public class Laberinto {
 
             while (i < 4) {
 
-                objFantasma = new Fantasma((int) (Math.random() * (laberinto.length - 2) + 1), (int) (Math.random() * (laberinto[0].length - 2) + 1), nivel, j);
+                x = (int) (Math.random() * (laberinto.length - 2) + 1);
+                y = (int) (Math.random() * (laberinto[0].length - 2) + 1);
+
+                objFantasma = new Fantasma(x, y, nivel, j);
 
                 if (laberinto[objFantasma.objCelda.x][objFantasma.objCelda.y].ruta.equals("src/imagenes/celda1.png")) {
 
@@ -252,11 +296,13 @@ public class Laberinto {
     }
 
     public final void GenerarPacMan() {
+        
+        int x, y;
 
         int i = 0;
         while (i < 1) {
-            int x = (int) (Math.random() * (laberinto.length - 2) + 1);
-            int y = (int) (Math.random() * (laberinto[0].length - 2) + 1);
+            x = (int) (Math.random() * (laberinto.length - 2) + 1);
+            y = (int) (Math.random() * (laberinto[0].length - 2) + 1);
 
             objPacMan = new PacMan(x, y, nivel, 'R');
             if (laberinto[objPacMan.objCelda.x][objPacMan.objCelda.y].ruta.equals("src/imagenes/celda1.png")) {
