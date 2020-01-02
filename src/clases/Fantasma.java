@@ -1,11 +1,11 @@
-
 package clases;
 
-public class Fantasma extends Celda{
+import javax.swing.ImageIcon;
 
-    public Fantasma(int x, int y, int nivel, String ruta) {
-        super(x, y, nivel, ruta);
-        super.ruta = ruta;
-        setVisible(true);
+public class Fantasma extends Personaje {
+
+    public Fantasma(int x, int y, int nivel, int j) {
+        nombre = "fantasma";
+        imagen = new ImageIcon("src/imagenes/fantasma" + j + ".png");
     }
 }
