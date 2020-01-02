@@ -8,27 +8,30 @@ public class Laberinto {
 
     Celda[][] laberinto; //Variable para la matriz de "Celda"
     PanelJuego panelJuego;//Variable para el panel
-    int nivel = 1;
+    int nivel = 3;
     Celda celda;
     Pared objPared;
     FrutaA objFrutaA;
     FrutaV objFrutaV;
+    Fantasma objFantasma;
     PacMan objPacMan;
 
     public Laberinto() {
+
         panelJuego = new PanelJuego();//Crea un objeto "PanelJuego" que hereda de "JPanel"
         CrearNivel();
         Llenar();
         GenerarParedes();
         GenerarFrutaA();
         GenerarFrutaV();
+        GenerarFantasma();
         GenerarPacMan();
-        Mover();
-        System.out.println("hola");
+        MoverPacMan();
         panelJuego.getVentana().setVisible(true);//Hace visible la ventana
     }
 
     private void CrearNivel() {
+
         if (nivel == 1) {
             laberinto = new Celda[15][15];
         }
@@ -56,6 +59,7 @@ public class Laberinto {
     }
 
     public final void GenerarParedes() {
+
         int i = 0;
         if (nivel == 1) {
             while (i < 40) {
@@ -94,6 +98,7 @@ public class Laberinto {
     }
 
     public final void GenerarFrutaA() {
+
         int i = 0;
         if (nivel == 1) {
             while (i < 5) {
@@ -129,13 +134,17 @@ public class Laberinto {
             }
         }
     }
-    
-    public final void GenerarFrutaV(){
+
+    public final void GenerarFrutaV() {
+
         int i = 0;
         if (nivel == 1) {
+
             while (i < 5) {
+
                 objFrutaV = new FrutaV((int) (Math.random() * (laberinto.length - 2) + 1), (int) (Math.random() * (laberinto[0].length - 2) + 1), nivel, "src/imagenes/frutaV.png");
                 if (laberinto[objFrutaV.x][objFrutaV.y].ruta.equals("src/imagenes/celda1.png")) {
+
                     laberinto[objFrutaV.x][objFrutaV.y].setIcon(null);
                     laberinto[objFrutaV.x][objFrutaV.y] = objFrutaV;
                     panelJuego.add(laberinto[objFrutaV.x][objFrutaV.y]);
@@ -144,9 +153,12 @@ public class Laberinto {
             }
         }
         if (nivel == 2) {
+
             while (i < 10) {
+
                 objFrutaV = new FrutaV((int) (Math.random() * (laberinto.length - 2) + 1), (int) (Math.random() * (laberinto[0].length - 2) + 1), nivel, "src/imagenes/frutaV.png");
                 if (laberinto[objFrutaV.x][objFrutaV.y].ruta.equals("src/imagenes/celda1.png")) {
+
                     laberinto[objFrutaV.x][objFrutaV.y].setIcon(null);
                     laberinto[objFrutaV.x][objFrutaV.y] = objFrutaV;
                     panelJuego.add(laberinto[objFrutaV.x][objFrutaV.y]);
@@ -155,9 +167,12 @@ public class Laberinto {
             }
         }
         if (nivel == 3) {
+
             while (i < 15) {
+
                 objFrutaV = new FrutaV((int) (Math.random() * (laberinto.length - 2) + 1), (int) (Math.random() * (laberinto[0].length - 2) + 1), nivel, "src/imagenes/frutaV.png");
                 if (laberinto[objFrutaV.x][objFrutaV.y].ruta.equals("src/imagenes/celda1.png")) {
+
                     laberinto[objFrutaV.x][objFrutaV.y].setIcon(null);
                     laberinto[objFrutaV.x][objFrutaV.y] = objFrutaV;
                     panelJuego.add(laberinto[objFrutaV.x][objFrutaV.y]);
@@ -167,7 +182,72 @@ public class Laberinto {
         }
     }
 
+    public final void GenerarFantasma() {
+
+        int i = 0;
+        int j = 1;
+
+        if (nivel == 1) {
+
+            while (i < 4) {
+
+                objFantasma = new Fantasma((int) (Math.random() * (laberinto.length - 2) + 1), (int) (Math.random() * (laberinto.length - 2) + 1), nivel, "src/imagenes/fantasma" + j + ".png");
+
+                if (laberinto[objFantasma.x][objFantasma.y].ruta.equals("src/imagenes/celda1.png")) {
+
+                    laberinto[objFantasma.x][objFantasma.y].setIcon(null);
+                    laberinto[objFantasma.x][objFantasma.y] = objFantasma;
+                    panelJuego.add(laberinto[objFantasma.x][objFantasma.y]);
+                    i++;
+                    j++;
+                }
+            }
+        }
+
+        if (nivel == 2) {
+
+            while (i < 1) {
+
+                objFantasma = new Fantasma((int) (Math.random() * (laberinto.length - 2) + 1), (int) (Math.random() * (laberinto.length - 2) + 1), nivel, "src/imagenes/fantasma" + j + ".png");
+
+                if (laberinto[objFantasma.x][objFantasma.y].ruta.equals("src/imagenes/celda1.png")) {
+
+                    laberinto[objFantasma.x][objFantasma.y].setIcon(null);
+                    laberinto[objFantasma.x][objFantasma.y] = objFantasma;
+                    panelJuego.add(laberinto[objFantasma.x][objFantasma.y]);
+                    i++;
+                    j++;
+//                    if (j == 4) {
+//                        j = 1;
+//                    }
+                }
+            }
+        }
+
+        if (nivel == 3) {
+
+            while (i < 1) {
+
+                objFantasma = new Fantasma((int) (Math.random() * (laberinto.length - 2) + 1), (int) (Math.random() * (laberinto.length - 2) + 1), nivel, "src/imagenes/fantasma" + j + ".png");
+
+                if (laberinto[objFantasma.x][objFantasma.y].ruta.equals("src/imagenes/celda1.png")) {
+
+                    laberinto[objFantasma.x][objFantasma.y].setIcon(null);
+                    laberinto[objFantasma.x][objFantasma.y] = objFantasma;
+                    panelJuego.add(laberinto[objFantasma.x][objFantasma.y]);
+                    i++;
+                    j++;
+//                    if (j == 4) {
+//                        j = 1;
+//                    }
+                }
+            }
+        }
+
+    }
+
     public final void GenerarPacMan() {
+
         int i = 0;
         while (i < 1) {
             objPacMan = new PacMan((int) (Math.random() * (laberinto.length - 2) + 1), (int) (Math.random() * (laberinto[0].length - 2) + 1), nivel, "src/imagenes/pacman2R.png");
@@ -181,7 +261,8 @@ public class Laberinto {
         }
     }
 
-    public final void Mover() {
+    public final void MoverPacMan() {
+
         panelJuego.getVentana().addKeyListener(new KeyListener() {
 
             @Override
@@ -193,62 +274,122 @@ public class Laberinto {
             public void keyPressed(KeyEvent e) {
                 ImageIcon iconoVacio = new ImageIcon("src/");
                 if (e.getKeyCode() == KeyEvent.VK_UP) {
-                    if (laberinto[objPacMan.x][objPacMan.y] != null && laberinto[objPacMan.x][objPacMan.y].getIcon() != null) {
-                        laberinto[objPacMan.x][objPacMan.y].setIcon(iconoVacio);
-                    }
-                    objPacMan.y--;
+                    if (laberinto[objPacMan.x][objPacMan.y - 1].ruta != "src/imagenes/pared.png") {
+                        if (laberinto[objPacMan.x][objPacMan.y] != null && laberinto[objPacMan.x][objPacMan.y].getIcon() != null) {
+                            laberinto[objPacMan.x][objPacMan.y].setIcon(iconoVacio);
+                        }
+                        objPacMan.y--;
 
-                    if (laberinto[objPacMan.x][objPacMan.y] != null && laberinto[objPacMan.x][objPacMan.y].getIcon() != null) {
-                        laberinto[objPacMan.x][objPacMan.y].setIcon(iconoVacio);
+                        if (laberinto[objPacMan.x][objPacMan.y].ruta == "src/imagenes/frutaA.png") {//Cuando se come una FrutaA
+                            objPacMan.vida++;
+                            System.out.println("+");
+                        }
+                        if (laberinto[objPacMan.x][objPacMan.y].ruta == "src/imagenes/frutaV.png") {//Cuando se come una FrutaV
+                            objPacMan.vida--;
+                            System.out.println("-");
+                        }
+
+                        if (laberinto[objPacMan.x][objPacMan.y] != null && laberinto[objPacMan.x][objPacMan.y].getIcon() != null) {
+                            laberinto[objPacMan.x][objPacMan.y].setIcon(iconoVacio);
+                        }
+                        laberinto[objPacMan.x][objPacMan.y] = new PacMan(objPacMan.x, objPacMan.y, nivel, "src/imagenes/pacman2U.png");
+                        panelJuego.add(laberinto[objPacMan.x][objPacMan.y]);
+
                     }
-                    laberinto[objPacMan.x][objPacMan.y] = new PacMan(objPacMan.x, objPacMan.y, nivel, "src/imagenes/pacman2U.png");
-                    panelJuego.add(laberinto[objPacMan.x][objPacMan.y]);
                 }
                 if (e.getKeyCode() == KeyEvent.VK_DOWN) {
-                    if (laberinto[objPacMan.x][objPacMan.y] != null && laberinto[objPacMan.x][objPacMan.y].getIcon() != null) {
-                        laberinto[objPacMan.x][objPacMan.y].setIcon(iconoVacio);
-                    }
-                    objPacMan.y++;
+                    if (laberinto[objPacMan.x][objPacMan.y + 1].ruta != "src/imagenes/pared.png") {
+                        if (laberinto[objPacMan.x][objPacMan.y] != null && laberinto[objPacMan.x][objPacMan.y].getIcon() != null) {
+                            laberinto[objPacMan.x][objPacMan.y].setIcon(iconoVacio);
+                        }
+                        objPacMan.y++;
 
-                    if (laberinto[objPacMan.x][objPacMan.y] != null && laberinto[objPacMan.x][objPacMan.y].getIcon() != null) {
-                        laberinto[objPacMan.x][objPacMan.y].setIcon(iconoVacio);
+                        if (laberinto[objPacMan.x][objPacMan.y].ruta == "src/imagenes/frutaA.png") {//Cuando se come una FrutaA
+
+                            objPacMan.vida++;
+                            System.out.println("+");
+                        }
+                        if (laberinto[objPacMan.x][objPacMan.y].ruta == "src/imagenes/frutaV.png") {//Cuando se come una FrutaV
+
+                            objPacMan.vida--;
+                            System.out.println("-");
+                        }
+
+                        if (laberinto[objPacMan.x][objPacMan.y] != null && laberinto[objPacMan.x][objPacMan.y].getIcon() != null) {
+
+                            laberinto[objPacMan.x][objPacMan.y].setIcon(iconoVacio);
+                        }
+                        laberinto[objPacMan.x][objPacMan.y] = new PacMan(objPacMan.x, objPacMan.y, nivel, "src/imagenes/pacman2D.png");
+                        panelJuego.add(laberinto[objPacMan.x][objPacMan.y]);
+
                     }
-                    laberinto[objPacMan.x][objPacMan.y] = new PacMan(objPacMan.x, objPacMan.y, nivel, "src/imagenes/pacman2D.png");
-                    panelJuego.add(laberinto[objPacMan.x][objPacMan.y]);
                 }
                 if (e.getKeyCode() == KeyEvent.VK_LEFT) {
-                    if (laberinto[objPacMan.x][objPacMan.y] != null && laberinto[objPacMan.x][objPacMan.y].getIcon() != null) {
-                        laberinto[objPacMan.x][objPacMan.y].setIcon(iconoVacio);
-                    }
 
-                    objPacMan.x--;
+                    if (laberinto[objPacMan.x - 1][objPacMan.y].ruta != "src/imagenes/pared.png") {
 
-                    if (laberinto[objPacMan.x][objPacMan.y] != null && laberinto[objPacMan.x][objPacMan.y].getIcon() != null) {
-                        laberinto[objPacMan.x][objPacMan.y].setIcon(iconoVacio);
+                        if (laberinto[objPacMan.x][objPacMan.y] != null && laberinto[objPacMan.x][objPacMan.y].getIcon() != null) {
+
+                            laberinto[objPacMan.x][objPacMan.y].setIcon(iconoVacio);
+                        }
+
+                        objPacMan.x--;
+
+                        if (laberinto[objPacMan.x][objPacMan.y].ruta == "src/imagenes/frutaA.png") {//Cuando se come una FrutaA
+                            objPacMan.vida++;
+                            System.out.println("+");
+                        }
+                        if (laberinto[objPacMan.x][objPacMan.y].ruta == "src/imagenes/frutaV.png") {//Cuando se come una FrutaV
+                            objPacMan.vida--;
+                            System.out.println("-");
+                        }
+
+                        if (laberinto[objPacMan.x][objPacMan.y] != null && laberinto[objPacMan.x][objPacMan.y].getIcon() != null) {
+                            laberinto[objPacMan.x][objPacMan.y].setIcon(iconoVacio);
+                        }
+                        laberinto[objPacMan.x][objPacMan.y] = new PacMan(objPacMan.x, objPacMan.y, nivel, "src/imagenes/pacman2L.png");
+                        panelJuego.add(laberinto[objPacMan.x][objPacMan.y]);
+
                     }
-                    laberinto[objPacMan.x][objPacMan.y] = new PacMan(objPacMan.x, objPacMan.y, nivel, "src/imagenes/pacman2L.png");
-                    panelJuego.add(laberinto[objPacMan.x][objPacMan.y]);
                 }
                 if (e.getKeyCode() == KeyEvent.VK_RIGHT) {
-                    if (laberinto[objPacMan.x][objPacMan.y] != null && laberinto[objPacMan.x][objPacMan.y].getIcon() != null) {
-                        laberinto[objPacMan.x][objPacMan.y].setIcon(iconoVacio);
-                    }
-                    objPacMan.x++;
 
-                    if (laberinto[objPacMan.x][objPacMan.y] != null && laberinto[objPacMan.x][objPacMan.y].getIcon() != null) {
-                        laberinto[objPacMan.x][objPacMan.y].setIcon(iconoVacio);
+                    if (laberinto[objPacMan.x + 1][objPacMan.y].ruta != "src/imagenes/pared.png") {
+
+                        if (laberinto[objPacMan.x][objPacMan.y] != null && laberinto[objPacMan.x][objPacMan.y].getIcon() != null) {
+
+                            laberinto[objPacMan.x][objPacMan.y].setIcon(iconoVacio);
+                        }
+                        objPacMan.x++;
+
+                        if (laberinto[objPacMan.x][objPacMan.y].ruta == "src/imagenes/frutaA.png") {//Cuando se come una FrutaA
+
+                            objPacMan.vida++;
+                            System.out.println("+");
+                        }
+                        if (laberinto[objPacMan.x][objPacMan.y].ruta == "src/imagenes/frutaV.png") {//Cuando se come una FrutaV
+
+                            objPacMan.vida--;
+                            System.out.println("-");
+                        }
+
+                        if (laberinto[objPacMan.x][objPacMan.y] != null && laberinto[objPacMan.x][objPacMan.y].getIcon() != null) {
+
+                            laberinto[objPacMan.x][objPacMan.y].setIcon(iconoVacio);
+                        }
+                        laberinto[objPacMan.x][objPacMan.y] = new PacMan(objPacMan.x, objPacMan.y, nivel, "src/imagenes/pacman2R.png");
+                        panelJuego.add(laberinto[objPacMan.x][objPacMan.y]);
+
                     }
-                    laberinto[objPacMan.x][objPacMan.y] = new PacMan(objPacMan.x, objPacMan.y, nivel, "src/imagenes/pacman2R.png");
-                    panelJuego.add(laberinto[objPacMan.x][objPacMan.y]);
                 }
                 //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
             }
 
             @Override
             public void keyReleased(KeyEvent e) {
+
                 //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
             }
         });
-
     }
 }

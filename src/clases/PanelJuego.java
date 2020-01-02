@@ -20,11 +20,8 @@ public class PanelJuego extends JPanel {
     public JFrame getVentana() {
         return ventana;
     }
-    
+
     public void setVentana(JFrame ventana) {
         this.ventana = ventana;
     }
-    
-
-
 }
