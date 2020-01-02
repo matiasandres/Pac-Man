@@ -1,9 +1,9 @@
+
 package clases;
 
-public class Fruta {
+public class Estatico {
 
     String nombre;
     Celda objCelda;
     String ruta;
-
 }

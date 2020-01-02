@@ -8,7 +8,7 @@ public class Laberinto {
 
     Celda[][] laberinto; //Variable para la matriz de "Celda"
     PanelJuego panelJuego;//Variable para el panel
-    int nivel = 3;
+    int nivel = 1;
     Celda celda;
     Pared objPared;
     Alimenticia objFrutaA;
@@ -50,8 +50,8 @@ public class Laberinto {
                 celda = new Celda(i, j, nivel);
                 laberinto[i][j] = celda;
                 if (i == 0 || j == 0 || i == laberinto.length - 1 || j == laberinto[i].length - 1) {//Añade paredes alrededor del laberinto
-                    objPared = new Pared(i, j, nivel, "src/imagenes/pared.png");
-                    laberinto[i][j] = objPared;
+                    objPared = new Pared(i, j, nivel);
+                    laberinto[i][j] = objPared.objCelda;
                 }
                 panelJuego.add(laberinto[i][j]);
             }
@@ -63,34 +63,34 @@ public class Laberinto {
         int i = 0;
         if (nivel == 1) {
             while (i < 40) {
-                objPared = new Pared((int) (Math.random() * (laberinto.length - 2) + 1), (int) (Math.random() * (laberinto[0].length - 2) + 1), nivel, "src/imagenes/pared.png");
-                if (laberinto[objPared.x][objPared.y].ruta.equals("src/imagenes/celda1.png")) {
-                    laberinto[objPared.x][objPared.y].setIcon(null);
-                    laberinto[objPared.x][objPared.y] = null;
-                    laberinto[objPared.x][objPared.y] = objPared;
-                    panelJuego.add(laberinto[objPared.x][objPared.y]);
+                objPared = new Pared((int) (Math.random() * (laberinto.length - 2) + 1), (int) (Math.random() * (laberinto[0].length - 2) + 1), nivel);
+                if (laberinto[objPared.objCelda.x][objPared.objCelda.y].ruta.equals("src/imagenes/celda1.png")) {
+                    laberinto[objPared.objCelda.x][objPared.objCelda.y].setIcon(null);
+                    laberinto[objPared.objCelda.x][objPared.objCelda.y] = null;
+                    laberinto[objPared.objCelda.x][objPared.objCelda.y] = objPared.objCelda;
+                    panelJuego.add(laberinto[objPared.objCelda.x][objPared.objCelda.y]);
                     i++;
                 }
             }
         }
         if (nivel == 2) {
             while (i < 80) {
-                objPared = new Pared((int) (Math.random() * (laberinto.length - 2) + 1), (int) (Math.random() * (laberinto[0].length - 2) + 1), nivel, "src/imagenes/pared.png");
-                if (laberinto[objPared.x][objPared.y].ruta.equals("src/imagenes/celda1.png")) {
-                    laberinto[objPared.x][objPared.y].setIcon(null);
-                    laberinto[objPared.x][objPared.y] = objPared;
-                    panelJuego.add(laberinto[objPared.x][objPared.y]);
+                objPared = new Pared((int) (Math.random() * (laberinto.length - 2) + 1), (int) (Math.random() * (laberinto[0].length - 2) + 1), nivel);
+                if (laberinto[objPared.objCelda.x][objPared.objCelda.y].ruta.equals("src/imagenes/celda1.png")) {
+                    laberinto[objPared.objCelda.x][objPared.objCelda.y].setIcon(null);
+                    laberinto[objPared.objCelda.x][objPared.objCelda.y] = objPared.objCelda;
+                    panelJuego.add(laberinto[objPared.objCelda.x][objPared.objCelda.y]);
                     i++;
                 }
             }
         }
         if (nivel == 3) {
             while (i < 120) {
-                objPared = new Pared((int) (Math.random() * (laberinto.length - 2) + 1), (int) (Math.random() * (laberinto[0].length - 2) + 1), nivel, "src/imagenes/pared.png");
-                if (laberinto[objPared.x][objPared.y].ruta.equals("src/imagenes/celda1.png")) {
-                    laberinto[objPared.x][objPared.y].setIcon(null);
-                    laberinto[objPared.x][objPared.y] = objPared;
-                    panelJuego.add(laberinto[objPared.x][objPared.y]);
+                objPared = new Pared((int) (Math.random() * (laberinto.length - 2) + 1), (int) (Math.random() * (laberinto[0].length - 2) + 1), nivel);
+                if (laberinto[objPared.objCelda.x][objPared.objCelda.y].ruta.equals("src/imagenes/celda1.png")) {
+                    laberinto[objPared.objCelda.x][objPared.objCelda.y].setIcon(null);
+                    laberinto[objPared.objCelda.x][objPared.objCelda.y] = objPared.objCelda;
+                    panelJuego.add(laberinto[objPared.objCelda.x][objPared.objCelda.y]);
                     i++;
                 }
             }

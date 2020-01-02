@@ -8,9 +8,8 @@ public class PacMan extends Personaje {
 
     public PacMan(int x, int y, int nivel, char direccion) {
         nombre = "PacMan";
-        imagen = new ImageIcon("src/imagenes/pacman2" + direccion + ".png");
-        objCelda = new Celda(x, y, nivel);
-        objCelda.setIcon(imagen);
+        ruta = "src/imagenes/pacman2" + direccion + ".png";
+        objCelda = new Celda(x, y, nivel, nombre, ruta);
         objCelda.setVisible(true);
     }
 }
