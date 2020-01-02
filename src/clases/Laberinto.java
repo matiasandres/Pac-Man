@@ -8,7 +8,7 @@ public class Laberinto {
 
     Celda[][] laberinto; //Variable para la matriz de "Celda"
     PanelJuego panelJuego;//Variable para el panel
-    int nivel = 1;
+    int nivel = 2;
     Celda celda;
     Pared objPared;
     Alimenticia objFrutaA;
@@ -24,7 +24,7 @@ public class Laberinto {
         GenerarParedes();
         GenerarFrutaA();
         GenerarFrutaV();
-        //GenerarFantasma();
+        GenerarFantasma();
         GenerarPacMan();
         MoverPacMan();
         panelJuego.getVentana().setVisible(true);//Hace visible la ventana
@@ -184,6 +184,9 @@ public class Laberinto {
 
     public final void GenerarFantasma() {
 
+        int x;
+        int y;
+
         int i = 0;
         int j = 1;
 
@@ -191,7 +194,7 @@ public class Laberinto {
 
             while (i < 4) {
 
-                objFantasma = new Fantasma((int) (Math.random() * (laberinto.length - 2) + 1), (int) (Math.random() * (laberinto.length - 2) + 1), nivel, j);
+                objFantasma = new Fantasma((int) (Math.random() * (laberinto.length - 2) + 1), (int) (Math.random() * (laberinto[0].length - 2) + 1), nivel, j);
 
                 if (laberinto[objFantasma.objCelda.x][objFantasma.objCelda.y].ruta.equals("src/imagenes/celda1.png")) {
 
@@ -206,10 +209,12 @@ public class Laberinto {
 
         if (nivel == 2) {
 
-            while (i < 1) {
+            while (i < 4) {
 
-                objFantasma = new Fantasma((int) (Math.random() * (laberinto.length - 2) + 1), (int) (Math.random() * (laberinto.length - 2) + 1), nivel, j);
+                x = (int) (Math.random() * (laberinto.length - 2) + 1);
+                y = (int) (Math.random() * (laberinto[0].length - 2) + 1);
 
+                objFantasma = new Fantasma(x, y, nivel, j);
                 if (laberinto[objFantasma.objCelda.x][objFantasma.objCelda.y].ruta.equals("src/imagenes/celda1.png")) {
 
                     laberinto[objFantasma.objCelda.x][objFantasma.objCelda.y].setIcon(null);
@@ -226,9 +231,9 @@ public class Laberinto {
 
         if (nivel == 3) {
 
-            while (i < 1) {
+            while (i < 4) {
 
-                objFantasma = new Fantasma((int) (Math.random() * (laberinto.length - 2) + 1), (int) (Math.random() * (laberinto.length - 2) + 1), nivel, j);
+                objFantasma = new Fantasma((int) (Math.random() * (laberinto.length - 2) + 1), (int) (Math.random() * (laberinto[0].length - 2) + 1), nivel, j);
 
                 if (laberinto[objFantasma.objCelda.x][objFantasma.objCelda.y].ruta.equals("src/imagenes/celda1.png")) {
 
