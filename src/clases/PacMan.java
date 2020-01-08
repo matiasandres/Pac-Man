@@ -1,15 +1,24 @@
 package clases;
 
-import javax.swing.ImageIcon;
-
 public class PacMan extends Personaje {
 
-    int vida = 5;
+    private static int vida = 3;
 
     public PacMan(int x, int y, int nivel, char direccion) {
-        nombre = "PacMan";
-        ruta = "src/imagenes/pacman2" + direccion + ".png";
-        objCelda = new Celda(x, y, nivel, nombre, ruta);
-        objCelda.setVisible(true);
+        setNombre("PacMan");
+        setRuta("src/imagenes/pacman2" + direccion + ".png");
+        setObjCelda(new Celda(x, y, nivel, getNombre(), getRuta()));
+        getObjCelda().setVisible(true);
+    }
+
+    @Override
+    public void Generar(Personaje objPersonaje) {
+    }
+    
+    public int getVida() {
+        return vida;
+    }
+    public void setVida(int vida) {
+        this.vida = vida;
     }
 }

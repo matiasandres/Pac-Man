@@ -5,10 +5,10 @@ import javax.swing.JLabel;
 
 public class Celda extends JLabel {
 
-    String nombre;
-    String ruta = "src/imagenes/celda1.png";
-    ImageIcon contenido;
-    int x, y;
+    public String nombre;
+    public String ruta = "src/imagenes/celda1.png";
+    public ImageIcon contenido;
+    public int x, y;
 
     public Celda(int x, int y, int nivel) {
         nombre = "Celda";
